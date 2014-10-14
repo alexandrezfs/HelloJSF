@@ -9,7 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,11 +24,6 @@ public class UserDaoJpa implements UserDao {
     @Override
     public void addUser(UserEntity userEntity) {
         em.persist(userEntity);
-    }
-
-    @Override
-    public UserEntity getUserById(int id) {
-        return em.find(UserEntity.class, id);
     }
 
     @Override

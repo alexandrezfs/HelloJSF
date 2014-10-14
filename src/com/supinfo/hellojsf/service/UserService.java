@@ -1,8 +1,6 @@
 package com.supinfo.hellojsf.service;
 
 import com.supinfo.hellojsf.dao.UserDao;
-import com.supinfo.hellojsf.dao.jpa.UserDaoJpa;
-import com.supinfo.hellojsf.entity.EmployeeEntity;
 import com.supinfo.hellojsf.entity.UserEntity;
 
 import javax.ejb.EJB;
@@ -19,10 +17,6 @@ public class UserService {
 
     public void addUser(UserEntity userEntity) {
         userDao.addUser(userEntity);
-    }
-
-    public UserEntity getUserById(int id) {
-        return userDao.getUserById(id);
     }
 
     public Object getUserByUsernamePassword(String username, String password) {

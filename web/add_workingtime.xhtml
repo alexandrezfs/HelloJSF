@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+
+<h:body>
+    <h1>Add employee</h1>
+
+    <h:form>
+
+        <h:outputLabel for="beginTime" value="Date Of Birth"/>
+        <h:inputText id="beginTime" value="#{EmployeeController.employeeEntity.dateOfBirth}">
+            <f:convertDateTime pattern="yyyy-MM-dd"/>
+        </h:inputText>
+
+        <br />
+
+        <h:outputLabel for="endTime" value="Date Of Birth"/>
+        <h:inputText id="endTime" value="#{EmployeeController.employeeEntity.dateOfBirth}">
+            <f:convertDateTime pattern="yyyy-MM-dd"/>
+        </h:inputText>
+
+        <br />
+
+        <h:commandButton value="Add Employee" action="#{EmployeeController.addEmployee}"/>
+    </h:form>
+</h:body>
+
+</html>

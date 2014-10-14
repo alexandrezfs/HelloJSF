@@ -14,7 +14,6 @@ import java.util.List;
 public interface UserDao {
 
     public void addUser(UserEntity userEntity);
-    public UserEntity getUserById(int id);
     public Object getUserByUsernamePassword(String username, String password);
     public List<EmployeeEntity> getAllEmployees();
 

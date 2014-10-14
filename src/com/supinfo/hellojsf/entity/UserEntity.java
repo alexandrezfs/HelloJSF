@@ -2,14 +2,16 @@ package com.supinfo.hellojsf.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
+/**
+ * Created by Alexandre NGUYEN on 14/10/2014.
+ */
 @Entity
 @Table(name = "user", schema = "", catalog = "hellojsf")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "user_type")
 public class UserEntity implements Serializable {
-    private int id;
+    private long id;
     private String username;
     private String password;
     private String firstname;
@@ -19,11 +21,11 @@ public class UserEntity implements Serializable {
 
     @Id
     @Column(name = "id")
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -107,7 +109,7 @@ public class UserEntity implements Serializable {
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (firstname != null ? firstname.hashCode() : 0);
