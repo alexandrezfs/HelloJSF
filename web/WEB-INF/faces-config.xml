@@ -9,4 +9,10 @@
         <managed-bean-class>com.supinfo.hellojsf.controller.UserController</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>EmployeeController</managed-bean-name>
+        <managed-bean-class>com.supinfo.hellojsf.controller.EmployeeController</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
 </faces-config>

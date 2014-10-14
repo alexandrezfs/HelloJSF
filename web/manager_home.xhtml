@@ -2,7 +2,8 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>Simple JSF Facelets page</title>
@@ -10,6 +11,40 @@
 
 <h:body>
     <h1>Hello manager !</h1>
+
+    <h:dataTable value="#{EmployeeController.employeeEntities}" var="employee">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{employee.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Username</f:facet>
+            #{employee.username}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Firstname</f:facet>
+            #{employee.firstname}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Lastname</f:facet>
+            #{employee.lastname}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Password</f:facet>
+            #{employee.password}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{employee.email}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Date of birth</f:facet>
+            #{employee.dateOfBirth}
+        </h:column>
+    </h:dataTable>
+
+    <h:outputLink value="add_employee.xhtml"><h:outputText value="Add employee"/></h:outputLink>
+
 </h:body>
 
 </html>

@@ -9,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -16,7 +17,7 @@ import java.sql.Date;
  */
 
 @ManagedBean
-public class UserController {
+public class UserController implements Serializable {
 
     @EJB
     private UserService userService;
