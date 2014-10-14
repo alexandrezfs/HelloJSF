@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+        <h:commandButton value="Add employee" action="#{UserController.addEmployee}"/>
+    </h:form>
+
+    <h:form>
+        <h:commandButton value="Add manager" action="#{UserController.addManager}"/>
+    </h:form>
+
+    <h1>Login</h1>
+
+    <div>
+
+        <h:form>
+
+            <h:outputLabel for="email" value="Email"/>
+            <h:inputText id="email" value="#{UserController.username}" required="true"/>
+
+            <h:outputLabel for="password" value="Password"/>
+            <h:inputSecret id="password" value="#{UserController.password}" required="true"/>
+
+            <h:commandButton value="Login" action="#{UserController.login}"/>
+
+        </h:form>
+
+    </div>
+
+</h:body>
+
+</html>
