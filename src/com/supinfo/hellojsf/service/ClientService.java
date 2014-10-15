@@ -24,4 +24,8 @@ public class ClientService {
     public List<ClientEntity> getAllClients() {
         return clientDao.getAllClients();
     }
+
+    public ClientEntity getClient(long id) {
+        return clientDao.getClientById(id);
+    }
 }

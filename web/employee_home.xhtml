@@ -2,18 +2,38 @@
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
     <title>Simple JSF Facelets page</title>
 </h:head>
 
 <h:body>
+
     <h1>Hello employee
         <h:outputText value=" ${ UserSession.firstname } ${ UserSession.lastname }"/> !
     </h1>
+
+    <h:dataTable value="#{WorkingTimeController.workingTimeEntityDataModel}" var="working">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{working.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">BEGIN DATE</f:facet>
+            #{working.beginDate}
+        </h:column>
+        <h:column>
+            <f:facet name="header">END DATE</f:facet>
+            #{working.endDate}
+        </h:column>
+        <h:column>
+            <f:facet name="header">CLIENT</f:facet>
+            #{working.client.name}
+        </h:column>
+    </h:dataTable>
+
 </h:body>
 
 </html>
-
-

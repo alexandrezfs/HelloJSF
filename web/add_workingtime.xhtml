@@ -14,21 +14,26 @@
 
     <h:form>
 
-        <h:outputLabel for="beginTime" value="Date Of Birth"/>
-        <h:inputText id="beginTime" value="#{EmployeeController.employeeEntity.dateOfBirth}">
+        <h:outputLabel for="beginTime" value="Begin time"/>
+        <h:inputText id="beginTime" value="#{WorkingTimeController.workingTimeToAdd.beginDate}">
             <f:convertDateTime pattern="yyyy-MM-dd"/>
         </h:inputText>
 
         <br />
 
-        <h:outputLabel for="endTime" value="Date Of Birth"/>
-        <h:inputText id="endTime" value="#{EmployeeController.employeeEntity.dateOfBirth}">
+        <h:outputLabel for="endTime" value="End time"/>
+        <h:inputText id="endTime" value="#{WorkingTimeController.workingTimeToAdd.endDate}">
             <f:convertDateTime pattern="yyyy-MM-dd"/>
         </h:inputText>
 
         <br />
 
-        <h:commandButton value="Add Employee" action="#{EmployeeController.addEmployee}"/>
+        <h:outputLabel for="client" value="Assign to a client"/>
+        <h:selectOneMenu id="client" value="#{ WorkingTimeController.selectedClientId }">
+            <f:selectItems value="#{ ClientController.clientEntityDataModel }" itemValue="#{ client.id }" var="client" itemLabel="#{ client.name }" />
+        </h:selectOneMenu>
+
+        <h:commandButton value="Add Employee" action="#{WorkingTimeController.addWorkingTime}"/>
     </h:form>
 </h:body>
 

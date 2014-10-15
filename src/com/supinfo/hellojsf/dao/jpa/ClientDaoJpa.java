@@ -33,4 +33,10 @@ public class ClientDaoJpa implements ClientDao {
 
         return clientEntities;
     }
+
+    @Override
+    public ClientEntity getClientById(long id) {
+
+        return em.find(ClientEntity.class, id);
+    }
 }

@@ -14,4 +14,5 @@ public interface ClientDao {
 
     public void addClient(ClientEntity clientEntity);
     public List<ClientEntity> getAllClients();
+    public ClientEntity getClientById(long ig);
 }

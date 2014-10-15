@@ -7,6 +7,7 @@ import java.util.Date;
  * Created by Alexandre NGUYEN on 14/10/2014.
  */
 @Entity
+@Table(name = "working_time", schema = "", catalog = "hellojsf")
 public class WorkingTimeEntity {
 
     @Id

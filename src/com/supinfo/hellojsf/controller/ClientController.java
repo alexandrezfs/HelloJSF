@@ -70,4 +70,6 @@ public class ClientController implements Serializable {
     public void setClientToAdd(ClientEntity clientToAdd) {
         this.clientToAdd = clientToAdd;
     }
+
+
 }
