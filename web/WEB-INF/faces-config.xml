@@ -27,4 +27,12 @@
         <managed-bean-class>com.supinfo.hellojsf.controller.WorkingTimeController</managed-bean-class>
         <managed-bean-scope>view</managed-bean-scope>
     </managed-bean>
+
+    <application>
+        <resource-bundle>
+            <base-name>com.supinfo.hellojsf.i18n.lang</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+
 </faces-config>

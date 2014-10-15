@@ -18,16 +18,16 @@
         <h:commandButton value="Add manager" action="#{UserController.addManager}"/>
     </h:form>
 
-    <h1>Login</h1>
+    <h1><h:outputText value="#{msg['login.page.title']}"/></h1>
 
     <div>
 
         <h:form>
 
-            <h:outputLabel for="email" value="Email"/>
+            <h:outputLabel for="email" value="#{msg['login.email']}"/>
             <h:inputText id="email" value="#{UserController.username}" required="true"/>
 
-            <h:outputLabel for="password" value="Password"/>
+            <h:outputLabel for="password" value="#{msg['login.password']}"/>
             <h:inputSecret id="password" value="#{UserController.password}" required="true"/>
 
             <h:commandButton value="Login" action="#{UserController.login}"/>
