@@ -1,29 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jstl/core"
+                template="employee.xhtml">
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+<ui:define name="inBodyEmployee">
 
-<h:head>
-    <title>Simple JSF Facelets page</title>
-</h:head>
-
-<h:body>
-    <h1>#{msg["addWorkingTime"]}</h1>
+    <h2>#{msg["addWorkingTime"]}</h2>
 
     <h:form>
 
         <h:outputLabel for="beginTime" value="#{msg['beginDate']}"/>
-        <h:inputText id="beginTime" value="#{WorkingTimeController.workingTimeToAdd.beginDate}">
-            <f:convertDateTime pattern="yyyy-MM-dd"/>
+        <h:inputText id="beginTime" value="#{WorkingTimeController.beginDate}" binding="#{beginDate}">
+            <f:validator validatorId="dateValidator" />
+            <f:validateRequired/>
         </h:inputText>
 
         <br />
 
         <h:outputLabel for="endTime" value="#{msg['endDate']}"/>
-        <h:inputText id="endTime" value="#{WorkingTimeController.workingTimeToAdd.endDate}">
-            <f:convertDateTime pattern="yyyy-MM-dd"/>
+        <h:inputText id="endTime" value="#{WorkingTimeController.endDate}">
+            <f:validator validatorId="dateValidator" />
+            <f:validateRequired/>
         </h:inputText>
 
         <br />
@@ -31,12 +30,16 @@
         <h:outputLabel for="client" value="#{msg['clientName']}"/>
         <h:selectOneMenu id="client" value="#{ WorkingTimeController.selectedClientId }">
             <f:selectItems value="#{ ClientController.clientEntityDataModel }" itemValue="#{ client.id }" var="client" itemLabel="#{ client.name }" />
+            <f:validateRequired/>
         </h:selectOneMenu>
 
         <br />
 
+        <h:messages />
+
         <h:commandButton value="#{msg['addEmployee']}" action="#{WorkingTimeController.addWorkingTime}"/>
     </h:form>
-</h:body>
 
-</html>
+</ui:define>
+
+</ui:composition>

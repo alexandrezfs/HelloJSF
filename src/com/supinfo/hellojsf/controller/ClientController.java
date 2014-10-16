@@ -44,7 +44,7 @@ public class ClientController implements Serializable {
 
         clientService.addClient(clientToAdd);
 
-        redirectAfterAdding(eC, "employee_home.xhtml");
+        redirectAfterAdding(eC, "manager_home.xhtml");
     }
 
     private void redirectAfterAdding(ExternalContext eC, String page) {

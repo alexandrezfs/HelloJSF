@@ -1,19 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jstl/core"
+                template="employee.xhtml">
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-
-<h:head>
-    <title>Simple JSF Facelets page</title>
-</h:head>
-
-<h:body>
-
-    <h1>#{msg["hello"]} employee
-        <h:outputText value=" ${ UserSession.firstname } ${ UserSession.lastname }"/> !
-    </h1>
+<ui:define name="inBodyEmployee">
 
     <h:dataTable value="#{WorkingTimeController.workingTimeEntityDataModel}" var="working">
         <h:column>
@@ -34,6 +26,6 @@
         </h:column>
     </h:dataTable>
 
-</h:body>
+</ui:define>
 
-</html>
+</ui:composition>

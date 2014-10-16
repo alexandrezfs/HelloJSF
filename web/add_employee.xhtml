@@ -1,52 +1,64 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jstl/core"
+                template="manager.xhtml">
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+<ui:define name="inBodyManager">
 
-<h:head>
-    <title>Simple JSF Facelets page</title>
-</h:head>
-
-<h:body>
-    <h1>#{msg["addEmployee"]}</h1>
+    <h2>#{msg["addEmployee"]}</h2>
 
     <h:form>
         <h:outputLabel for="email" value="#{msg['email']}"/>
-        <h:inputText id="email" value="#{EmployeeController.employeeEntity.email}" required="true"/>
+        <h:inputText id="email" value="#{EmployeeController.employeeEntity.email}">
+            <f:validateRequired/>
+            <f:validator validatorId="emailValidator"/>
+        </h:inputText>
 
-        <br />
+        <br/>
 
         <h:outputLabel for="username" value="#{msg['username']}"/>
-        <h:inputText id="username" value="#{EmployeeController.employeeEntity.username}" required="true"/>
+        <h:inputText id="username" value="#{EmployeeController.employeeEntity.username}">
+            <f:validateRequired/>
+        </h:inputText>
 
-        <br />
+        <br/>
 
         <h:outputLabel for="firstname" value="#{msg['firstname']}"/>
-        <h:inputText id="firstname" value="#{EmployeeController.employeeEntity.firstname}"/>
+        <h:inputText id="firstname" value="#{EmployeeController.employeeEntity.firstname}">
+            <f:validateRequired/>
+        </h:inputText>
 
-        <br />
+        <br/>
 
         <h:outputLabel for="lastname" value="#{msg['lastname']}"/>
-        <h:inputText id="lastname" value="#{EmployeeController.employeeEntity.lastname}"/>
+        <h:inputText id="lastname" value="#{EmployeeController.employeeEntity.lastname}">
+            <f:validateRequired/>
+        </h:inputText>
 
-        <br />
+        <br/>
 
         <h:outputLabel for="password" value="#{msg['password']}"/>
-        <h:inputSecret id="password" value="#{EmployeeController.employeeEntity.password}"/>
+        <h:inputSecret id="password" value="#{EmployeeController.employeeEntity.password}">
+            <f:validateRequired/>
+        </h:inputSecret>
 
-        <br />
+        <br/>
 
         <h:outputLabel for="dateOfBirth" value="#{msg['dateOfBirth']}"/>
         <h:inputText id="dateOfBirth" value="#{EmployeeController.employeeEntity.dateOfBirth}">
-            <f:convertDateTime pattern="yyyy-MM-dd"/>
+            <f:validateRequired/>
+            <f:converter converterId="birthdayConverter"/>
         </h:inputText>
 
-        <br />
+        <br/>
+
+        <h:messages/>
 
         <h:commandButton value="#{msg['addEmployee']}" action="#{EmployeeController.addEmployee}"/>
     </h:form>
-</h:body>
 
-</html>
+</ui:define>
+
+</ui:composition>

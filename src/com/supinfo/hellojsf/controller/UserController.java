@@ -51,6 +51,14 @@ public class UserController implements Serializable {
         userService.addUser(managerEntity);
     }
 
+    public void logout() {
+
+        ExternalContext eC = FacesContext.getCurrentInstance().getExternalContext();
+        eC.getSessionMap().put("UserSession", null);
+
+        redirectAfterLogin(eC, "login.xhtml");
+    }
+
     public void login() {
 
         ExternalContext eC = FacesContext.getCurrentInstance().getExternalContext();

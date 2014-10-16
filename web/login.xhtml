@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html">
@@ -11,14 +9,10 @@
 <h:body>
 
     <h:form>
-        <h:commandButton value="Add employee" action="#{UserController.addEmployee}"/>
+        <h:commandButton value="Add manager into database" action="#{UserController.addManager}"/>
     </h:form>
 
-    <h:form>
-        <h:commandButton value="Add manager" action="#{UserController.addManager}"/>
-    </h:form>
-
-    <h1><h:outputText value="#{msg['loginTitle']}"/></h1>
+    <h2><h:outputText value="#{msg['loginTitle']}"/></h2>
 
     <div>
 

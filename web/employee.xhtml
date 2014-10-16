@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="authenticated.xhtml">
+
+    <ui:define name="inBodyAuthenticated">
+
+        <h1>#{msg["hello"]} employee
+            <h:outputText value=" ${ UserSession.firstname } ${ UserSession.lastname }"/> !
+        </h1>
+
+        <ui:insert name="inBodyEmployee" />
+
+        <h:outputLink value="add_workingtime.xhtml"
+                      rendered="#{WorkingTimeController.workingTimeEntityList.size() > 0}"><h:outputText
+                value="#{msg['addWorkingTime']}"/></h:outputLink>
+        <h:outputText
+                rendered="#{WorkingTimeController.workingTimeEntityList.size() == 0}">A manager must add client to be able to add a working time.</h:outputText>
+        <br/>
+
+    </ui:define>
+
+</ui:composition>

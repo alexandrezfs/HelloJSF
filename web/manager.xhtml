@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="authenticated.xhtml">
+
+    <ui:define name="inBodyAuthenticated">
+
+        <h1>
+            #{msg['hello']} manager
+            <h:outputText value=" ${ UserSession.firstname } ${ UserSession.lastname }"/> !
+        </h1>
+
+        <ui:insert name="inBodyManager" />
+
+        <h:outputLink value="add_employee.xhtml"><h:outputText value="#{msg['addEmployee']}"/></h:outputLink>
+        <br />
+        <h:outputLink value="add_client.xhtml"><h:outputText value="#{msg['addClient']}"/></h:outputLink>
+
+    </ui:define>
+
+</ui:composition>

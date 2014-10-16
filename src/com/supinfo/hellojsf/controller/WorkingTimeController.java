@@ -14,6 +14,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -33,12 +36,17 @@ public class WorkingTimeController {
 
     private DataModel<WorkingTimeEntity> workingTimeEntityDataModel;
 
+    private List<WorkingTimeEntity> workingTimeEntityList;
+
     private long selectedClientId = 0;
+
+    private String beginDate = null;
+    private String endDate = null;
 
     @PostConstruct
     public void init() {
 
-        List<WorkingTimeEntity> workingTimeEntityList = workingTimeService.getAllWorkingTimes();
+        workingTimeEntityList = workingTimeService.getAllWorkingTimes();
         WorkingTimeEntity[] workingTimeEntitiesArray = new WorkingTimeEntity[workingTimeEntityList.size()];
         workingTimeEntityList.toArray(workingTimeEntitiesArray);
 
@@ -48,14 +56,23 @@ public class WorkingTimeController {
     public void addWorkingTime() {
 
         ExternalContext eC = FacesContext.getCurrentInstance().getExternalContext();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 
-        ClientEntity c = clientService.getClient(selectedClientId);
+        try {
 
-        workingTimeToAdd.setClient(c);
+            Date bDate = formatter.parse(beginDate);
+            Date eDate = formatter.parse(endDate);
 
-        workingTimeService.addWorkingTime(workingTimeToAdd);
+            workingTimeToAdd.setBeginDate(bDate);
+            workingTimeToAdd.setEndDate(eDate);
+            workingTimeToAdd.setClient(clientService.getClient(selectedClientId));
+            workingTimeService.addWorkingTime(workingTimeToAdd);
 
-        redirectAfterLogin(eC, "employee_home.xhtml");
+            redirectAfterLogin(eC, "employee_home.xhtml");
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
     private void redirectAfterLogin(ExternalContext eC, String page) {
@@ -88,5 +105,29 @@ public class WorkingTimeController {
 
     public void setSelectedClientId(long selectedClientId) {
         this.selectedClientId = selectedClientId;
+    }
+
+    public List<WorkingTimeEntity> getWorkingTimeEntityList() {
+        return workingTimeEntityList;
+    }
+
+    public void setWorkingTimeEntityList(List<WorkingTimeEntity> workingTimeEntityList) {
+        this.workingTimeEntityList = workingTimeEntityList;
+    }
+
+    public String getBeginDate() {
+        return beginDate;
+    }
+
+    public void setBeginDate(String beginDate) {
+        this.beginDate = beginDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }
