@@ -2,7 +2,7 @@ package com.supinfo.hellojsf.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Created by Alexandre NGUYEN on 14/10/2014.
@@ -11,6 +11,9 @@ import java.sql.Date;
 @Table(name = "user", schema = "", catalog = "hellojsf")
 @DiscriminatorColumn(name = "user_type")
 public class UserEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String username;
     private String password;
@@ -19,8 +22,6 @@ public class UserEntity implements Serializable {
     private String email;
     private Date dateOfBirth;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -29,8 +30,6 @@ public class UserEntity implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -39,8 +38,6 @@ public class UserEntity implements Serializable {
         this.username = username;
     }
 
-    @Basic
-    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -49,8 +46,6 @@ public class UserEntity implements Serializable {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "firstname")
     public String getFirstname() {
         return firstname;
     }
@@ -59,8 +54,6 @@ public class UserEntity implements Serializable {
         this.firstname = firstname;
     }
 
-    @Basic
-    @Column(name = "lastname")
     public String getLastname() {
         return lastname;
     }
@@ -69,8 +62,6 @@ public class UserEntity implements Serializable {
         this.lastname = lastname;
     }
 
-    @Basic
-    @Column(name = "email")
     public String getEmail() {
         return email;
     }
@@ -79,8 +70,6 @@ public class UserEntity implements Serializable {
         this.email = email;
     }
 
-    @Basic
-    @Column(name = "dateOfBirth")
     public Date getDateOfBirth() {
         return dateOfBirth;
     }

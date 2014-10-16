@@ -10,42 +10,42 @@
 </h:head>
 
 <h:body>
-    <h1>Add employee</h1>
+    <h1>#{msg["addEmployee"]}</h1>
 
     <h:form>
-        <h:outputLabel for="email" value="Email"/>
+        <h:outputLabel for="email" value="#{msg['email']}"/>
         <h:inputText id="email" value="#{EmployeeController.employeeEntity.email}" required="true"/>
 
         <br />
 
-        <h:outputLabel for="username" value="Username"/>
+        <h:outputLabel for="username" value="#{msg['username']}"/>
         <h:inputText id="username" value="#{EmployeeController.employeeEntity.username}" required="true"/>
 
         <br />
 
-        <h:outputLabel for="firstname" value="Firstname"/>
+        <h:outputLabel for="firstname" value="#{msg['firstname']}"/>
         <h:inputText id="firstname" value="#{EmployeeController.employeeEntity.firstname}"/>
 
         <br />
 
-        <h:outputLabel for="lastname" value="Lastname"/>
+        <h:outputLabel for="lastname" value="#{msg['lastname']}"/>
         <h:inputText id="lastname" value="#{EmployeeController.employeeEntity.lastname}"/>
 
         <br />
 
-        <h:outputLabel for="password" value="Password"/>
-        <h:inputText id="password" value="#{EmployeeController.employeeEntity.password}"/>
+        <h:outputLabel for="password" value="#{msg['password']}"/>
+        <h:inputSecret id="password" value="#{EmployeeController.employeeEntity.password}"/>
 
         <br />
 
-        <h:outputLabel for="dateOfBirth" value="Date Of Birth"/>
+        <h:outputLabel for="dateOfBirth" value="#{msg['dateOfBirth']}"/>
         <h:inputText id="dateOfBirth" value="#{EmployeeController.employeeEntity.dateOfBirth}">
             <f:convertDateTime pattern="yyyy-MM-dd"/>
         </h:inputText>
 
         <br />
 
-        <h:commandButton value="Add Employee" action="#{EmployeeController.addEmployee}"/>
+        <h:commandButton value="#{msg['addEmployee']}" action="#{EmployeeController.addEmployee}"/>
     </h:form>
 </h:body>
 

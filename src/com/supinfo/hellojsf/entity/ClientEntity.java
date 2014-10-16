@@ -9,11 +9,12 @@ import java.io.Serializable;
 @Entity
 @Table(name = "client", schema = "", catalog = "hellojsf")
 public class ClientEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String name;
 
-    @Id
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -22,8 +23,6 @@ public class ClientEntity implements Serializable {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }

@@ -10,15 +10,16 @@
 </h:head>
 
 <h:body>
-    <h1>Add client</h1>
+    <h1>#{msg["addClient"]}</h1>
 
     <h:form>
-        <h:outputLabel for="name" value="Client name"/>
+        <h:outputLabel for="name" value="#{msg['clientName']}"/>
+
         <h:inputText id="name" value="#{ClientController.clientToAdd.name}" required="true"/>
 
         <br />
 
-        <h:commandButton value="Add Client" action="#{ClientController.addClient}"/>
+        <h:commandButton value="#{msg['addClient']}" action="#{ClientController.addClient}"/>
     </h:form>
 </h:body>
 

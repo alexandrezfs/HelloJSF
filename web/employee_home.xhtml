@@ -11,7 +11,7 @@
 
 <h:body>
 
-    <h1>Hello employee
+    <h1>#{msg["hello"]} employee
         <h:outputText value=" ${ UserSession.firstname } ${ UserSession.lastname }"/> !
     </h1>
 
@@ -21,15 +21,15 @@
             #{working.id}
         </h:column>
         <h:column>
-            <f:facet name="header">BEGIN DATE</f:facet>
+            <f:facet name="header">#{msg["beginDate"]}</f:facet>
             #{working.beginDate}
         </h:column>
         <h:column>
-            <f:facet name="header">END DATE</f:facet>
+            <f:facet name="header">#{msg["endDate"]}</f:facet>
             #{working.endDate}
         </h:column>
         <h:column>
-            <f:facet name="header">CLIENT</f:facet>
+            <f:facet name="header">#{msg["clientName"]}</f:facet>
             #{working.client.name}
         </h:column>
     </h:dataTable>
