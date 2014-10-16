@@ -60,11 +60,15 @@ public class WorkingTimeController {
 
         try {
 
-            Date bDate = formatter.parse(beginDate);
-            Date eDate = formatter.parse(endDate);
+            if(beginDate != null && endDate != null) {
 
-            workingTimeToAdd.setBeginDate(bDate);
-            workingTimeToAdd.setEndDate(eDate);
+                Date bDate = formatter.parse(beginDate);
+                Date eDate = formatter.parse(endDate);
+
+                workingTimeToAdd.setBeginDate(bDate);
+                workingTimeToAdd.setEndDate(eDate);
+            }
+
             workingTimeToAdd.setClient(clientService.getClient(selectedClientId));
             workingTimeService.addWorkingTime(workingTimeToAdd);
 

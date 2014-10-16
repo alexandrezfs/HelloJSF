@@ -12,44 +12,45 @@
     <h:form>
         <h:outputLabel for="email" value="#{msg['email']}"/>
         <h:inputText id="email" value="#{EmployeeController.employeeEntity.email}">
-            <f:validateRequired/>
-            <f:validator validatorId="emailValidator"/>
+            <!--<f:validateRequired/>
+            <f:validator validatorId="emailValidator"/>-->
         </h:inputText>
 
         <br/>
 
         <h:outputLabel for="username" value="#{msg['username']}"/>
         <h:inputText id="username" value="#{EmployeeController.employeeEntity.username}">
-            <f:validateRequired/>
+            <!--<f:validateRequired/>-->
         </h:inputText>
 
         <br/>
 
         <h:outputLabel for="firstname" value="#{msg['firstname']}"/>
         <h:inputText id="firstname" value="#{EmployeeController.employeeEntity.firstname}">
-            <f:validateRequired/>
+            <!--<f:validateRequired/>-->
         </h:inputText>
 
         <br/>
 
         <h:outputLabel for="lastname" value="#{msg['lastname']}"/>
         <h:inputText id="lastname" value="#{EmployeeController.employeeEntity.lastname}">
-            <f:validateRequired/>
+            <!--<f:validateRequired/>-->
         </h:inputText>
 
         <br/>
 
         <h:outputLabel for="password" value="#{msg['password']}"/>
         <h:inputSecret id="password" value="#{EmployeeController.employeeEntity.password}">
-            <f:validateRequired/>
+            <!--<f:validateRequired/>-->
         </h:inputSecret>
 
         <br/>
 
         <h:outputLabel for="dateOfBirth" value="#{msg['dateOfBirth']}"/>
-        <h:inputText id="dateOfBirth" value="#{EmployeeController.employeeEntity.dateOfBirth}">
-            <f:validateRequired/>
-            <f:converter converterId="birthdayConverter"/>
+        <h:inputText id="dateOfBirth" value="#{EmployeeController.employeeEntity.dateOfBirth}" required="true">
+            <!--<f:validateRequired/>
+            <f:converter converterId="birthdayConverter"/>-->
+            <f:convertDateTime pattern="yyyy-MM-dd" />
         </h:inputText>
 
         <br/>

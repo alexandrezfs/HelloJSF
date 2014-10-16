@@ -12,25 +12,27 @@
     <h:form>
 
         <h:outputLabel for="beginTime" value="#{msg['beginDate']}"/>
-        <h:inputText id="beginTime" value="#{WorkingTimeController.beginDate}" binding="#{beginDate}">
-            <f:validator validatorId="dateValidator" />
-            <f:validateRequired/>
+        <h:inputText id="beginTime" value="#{WorkingTimeController.workingTimeToAdd.beginDate}">
+            <!--<f:validator validatorId="dateValidator" />
+            <f:validateRequired/>-->
+            <f:convertDateTime pattern="yyyy-MM-dd" />
         </h:inputText>
 
         <br />
 
         <h:outputLabel for="endTime" value="#{msg['endDate']}"/>
-        <h:inputText id="endTime" value="#{WorkingTimeController.endDate}">
-            <f:validator validatorId="dateValidator" />
-            <f:validateRequired/>
+        <h:inputText id="endTime" value="#{WorkingTimeController.workingTimeToAdd.endDate}" required="true">
+            <!--<f:validator validatorId="dateValidator" />
+            <f:validateRequired/>-->
+            <f:convertDateTime pattern="yyyy-MM-dd" />
         </h:inputText>
 
         <br />
 
         <h:outputLabel for="client" value="#{msg['clientName']}"/>
-        <h:selectOneMenu id="client" value="#{ WorkingTimeController.selectedClientId }">
+        <h:selectOneMenu id="client" value="#{ WorkingTimeController.selectedClientId }" required="true">
             <f:selectItems value="#{ ClientController.clientEntityDataModel }" itemValue="#{ client.id }" var="client" itemLabel="#{ client.name }" />
-            <f:validateRequired/>
+            <!--<f:validateRequired/>-->
         </h:selectOneMenu>
 
         <br />

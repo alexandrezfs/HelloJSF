@@ -1,6 +1,12 @@
 package com.supinfo.hellojsf.entity;
 
+import com.sun.istack.internal.NotNull;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,11 +21,28 @@ public class UserEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotBlank
+    @Size(min = 3, max = 60)
     private String username;
+
+    @NotBlank
     private String password;
+
+    @NotBlank
+    @Size(min = 3, max = 60)
     private String firstname;
+
+    @NotBlank
+    @Size(min = 3, max = 60)
     private String lastname;
+
+    @NotBlank
+    @Email
     private String email;
+
+    @NotNull
+    @Past
     private Date dateOfBirth;
 
     public long getId() {

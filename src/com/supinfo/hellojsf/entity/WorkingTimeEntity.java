@@ -1,5 +1,8 @@
 package com.supinfo.hellojsf.entity;
 
+import com.sun.istack.internal.NotNull;
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,7 +17,12 @@ public class WorkingTimeEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
+    @Temporal(TemporalType.DATE)
     private Date beginDate;
+
+    @NotNull
+    @Temporal(TemporalType.DATE)
     private Date endDate;
 
     @ManyToOne
