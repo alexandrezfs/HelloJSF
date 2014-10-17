@@ -31,8 +31,8 @@ public class UserController implements Serializable {
         employeeEntity.setEmail("test@hellojsf.com");
         employeeEntity.setDateOfBirth(new Date(0));
         employeeEntity.setFirstname("AlexEmployee");
-        employeeEntity.setLastname("Ng");
-        employeeEntity.setPassword("supinfo");
+        employeeEntity.setLastname("Nguyen");
+        employeeEntity.setPassword("Supinfo123@");
         employeeEntity.setUsername("alexEployee");
 
         userService.addUser(employeeEntity);
@@ -44,8 +44,8 @@ public class UserController implements Serializable {
         managerEntity.setEmail("test@hellojsf.com");
         managerEntity.setDateOfBirth(new Date(0));
         managerEntity.setFirstname("AlexManager");
-        managerEntity.setLastname("Ng");
-        managerEntity.setPassword("supinfo");
+        managerEntity.setLastname("Nguyen");
+        managerEntity.setPassword("Supinfo123@");
         managerEntity.setUsername("alexManager");
 
         userService.addUser(managerEntity);

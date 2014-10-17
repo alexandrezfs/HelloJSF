@@ -1,6 +1,9 @@
 package com.supinfo.hellojsf.entity;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -13,6 +16,9 @@ public class ClientEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotBlank
+    @Size(min = 3, max = 60)
     private String name;
 
     public long getId() {

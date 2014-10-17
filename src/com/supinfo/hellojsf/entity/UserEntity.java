@@ -1,6 +1,8 @@
 package com.supinfo.hellojsf.entity;
 
 import com.sun.istack.internal.NotNull;
+import com.supinfo.hellojsf.constrain.annotation.PasswordAnnotation;
+import com.supinfo.hellojsf.constrain.annotation.PasswordMode;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -27,6 +29,7 @@ public class UserEntity implements Serializable {
     private String username;
 
     @NotBlank
+    @PasswordAnnotation(PasswordMode.RESTRICTED)
     private String password;
 
     @NotBlank

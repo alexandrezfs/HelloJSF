@@ -20,9 +20,9 @@ import javax.validation.Payload;
 @Retention(RUNTIME)
 @Constraint(validatedBy = PasswordConstrainValidator.class)
 @Documented
-public @interface Password {
+public @interface PasswordAnnotation {
 
-    String message() default "{com.supinfo.hellojsf.validator}";
+    String message() default "a digit, a lower case, an upper case, a special character must occur at least once and must be > 6 characters.";
 
     Class<?>[] groups() default {};
 
