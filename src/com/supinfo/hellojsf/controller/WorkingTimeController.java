@@ -43,6 +43,15 @@ public class WorkingTimeController {
     private String beginDate = null;
     private String endDate = null;
 
+    public void deleteWorkingTime(int selectedWorkingTimeId) {
+
+        ExternalContext eC = FacesContext.getCurrentInstance().getExternalContext();
+
+        workingTimeService.removeWorkingTime(selectedWorkingTimeId);
+
+        redirectAfterLogin(eC, "employee_home.xhtml");
+    }
+
     @PostConstruct
     public void init() {
 

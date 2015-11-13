@@ -36,7 +36,7 @@ public class UserDaoJpa implements UserDao {
 
         try {
             Object obj = query.getSingleResult();
-            System.out.println(obj.getClass().toString() + "TATATATA");
+            System.out.println(obj.getClass().toString());
             return obj;
         }
         catch (NoResultException exception) {

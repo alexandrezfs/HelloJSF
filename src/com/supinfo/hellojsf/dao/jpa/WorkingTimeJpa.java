@@ -1,6 +1,7 @@
 package com.supinfo.hellojsf.dao.jpa;
 
 import com.supinfo.hellojsf.dao.WorkingTimeDao;
+import com.supinfo.hellojsf.entity.ClientEntity;
 import com.supinfo.hellojsf.entity.WorkingTimeEntity;
 
 import javax.ejb.Stateless;
@@ -29,5 +30,10 @@ public class WorkingTimeJpa implements WorkingTimeDao {
         Query query = em.createQuery("SELECT w FROM WorkingTimeEntity w ORDER BY w.id DESC");
 
         return query.getResultList();
+    }
+
+    @Override
+    public void removeWorkingTime(int id) {
+        int deletedCount = em.createQuery("DELETE FROM WorkingTimeEntity w WHERE id = " + id).executeUpdate();
     }
 }

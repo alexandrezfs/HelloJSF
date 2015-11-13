@@ -24,4 +24,8 @@ public class WorkingTimeService {
     public List<WorkingTimeEntity> getAllWorkingTimes() {
         return workingTimeDao.getAllWorkingTimes();
     }
+
+    public void removeWorkingTime(int id) {
+        workingTimeDao.removeWorkingTime(id);
+    }
 }

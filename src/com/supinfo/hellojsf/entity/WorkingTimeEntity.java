@@ -29,7 +29,6 @@ public class WorkingTimeEntity {
     private ClientEntity client;
 
     public long getId() {
-
         return id;
     }
 

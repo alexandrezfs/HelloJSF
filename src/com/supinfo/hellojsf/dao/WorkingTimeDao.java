@@ -16,5 +16,6 @@ public interface WorkingTimeDao {
 
     public void addWorkingTime(WorkingTimeEntity workingTimeEntity);
     public List<WorkingTimeEntity> getAllWorkingTimes();
+    public void removeWorkingTime(int id);
 
 }
